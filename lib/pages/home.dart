@@ -7,7 +7,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: lightGreen,
+      backgroundColor: Colors.white,
       body: Padding(
         padding: const EdgeInsets.all(10.0),
         child: ListView(
@@ -15,7 +15,7 @@ class HomePage extends StatelessWidget {
             children: [
               category(),
               category(),
-              category()
+              category(),
             ],
         ),
       ),

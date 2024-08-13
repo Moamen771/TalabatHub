@@ -17,93 +17,114 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
       drawer: Drawer(
-        backgroundColor: lightGreen,
+        backgroundColor: Colors.white,
         child: Column(
           children: [
-            drawerItem(GestureDetector(
-              onTap: (){
-                Navigator.push(context, MaterialPageRoute(builder: (context) => const Account(),));
-              },
-              child: ListTile(
-                leading: const CircleAvatar(
-                  backgroundImage: AssetImage('images/Light.jpg'),
-                  radius: 28,
-                ),
-                title: Text(
-                  'UserName',
-                  style: TextStyle(
-                    color: lighterGreen,
-                    fontWeight: FontWeight.bold),
-                ),
-                subtitle: Text(
-                  'EMail@gmail.com',
-                  style: TextStyle(
-                    color: lightGreen
-                  ),
+          drawerItem(GestureDetector(
+            onTap: (){
+              Navigator.push(context, MaterialPageRoute(builder: (context) => const Account(),));
+            },
+            child: const ListTile(
+              leading: CircleAvatar(
+                backgroundImage: AssetImage('images/Light.jpg'),
+                radius: 26,
+              ),
+              title: Text(
+                'UserName',
+                style: TextStyle(
+                  color: Colors.black,
+                  fontWeight: FontWeight.bold),
+              ),
+              subtitle: Text(
+                'EMail@gmail.com',
+                style: TextStyle(
+                  color: Colors.black
                 ),
               ),
-            )),
-            drawerItem(GestureDetector(
-                onTap: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => const Categories(),));
-                },
-                child: Row(
-                  children: [
-                    Text(
-                      'Categories',
-                      style: TextStyle(
-                        fontSize: 26,
-                        color: lighterGreen
-                      ),
-                    ),
-                    Icon(Icons.arrow_forward_ios,color: lighterGreen)
-                  ],
-                ),
-              )),
-            drawerItem(GestureDetector(
+            ),
+          )),
+          drawerItem(GestureDetector(
               onTap: (){
-                Navigator.push(context, MaterialPageRoute(builder: (context) => const Categories(),));
+                Navigator.push(context, MaterialPageRoute(builder: (context) => CategoriesPage(),));
               },
-              child: Row(
+              child: const Row(
                 children: [
                   Text(
-                    'Cart',
+                    'Categories',
                     style: TextStyle(
                       fontSize: 26,
-                      color: lighterGreen                    ),
+                      color: Colors.black,
+                      fontWeight: FontWeight.w500
+                    ),
                   ),
-                  Icon(Icons.arrow_forward_ios,color: lighterGreen)
+                  Icon(Icons.arrow_forward_ios,color: Colors.black)
                 ],
               ),
             )),
-            const Spacer(),
-            drawerItem(Row(
+          drawerItem(GestureDetector(
+            onTap: (){
+              Navigator.push(context, MaterialPageRoute(builder: (context) => CategoriesPage() ,));
+            },
+            child: const Row(
               children: [
                 Text(
-                  'Logout',
+                  'Cart',
                   style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 30,
-                    color: lighterGreen
+                    fontSize: 26,
+                    color: Colors.black,
+                    fontWeight: FontWeight.w500
                   ),
                 ),
-                const Spacer(),
-                IconButton(
-                    onPressed: (){},
-                    icon: Icon(Icons.logout,size: 30,color: lighterGreen)
-                )
+                Icon(Icons.arrow_forward_ios,color: Colors.black)
               ],
-            ),)
+            ),
+          )),
+          drawerItem(GestureDetector(
+            onTap: (){
+              Navigator.push(context, MaterialPageRoute(builder: (context) => CategoriesPage() ,));
+            },
+            child: const Row(
+              children: [
+                Text(
+                  'Wishlist',
+                  style: TextStyle(
+                    fontSize: 26,
+                    color: Colors.black,
+                    fontWeight: FontWeight.w500
+                  ),
+                ),
+                Icon(Icons.arrow_forward_ios,color: Colors.black)
+              ],
+            ),
+          )),
+          const Spacer(),
+          drawerItem(Row(
+            children: [
+              const Text(
+                'Logout',
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 30,
+                  color: Colors.black,
+                ),
+              ),
+              const Spacer(),
+              IconButton(
+                  onPressed: (){},
+                  icon: const Icon(Icons.logout,size: 30,color: Colors.black)
+              )
+            ],
+          ),)
           ],
         ),
       ),
       appBar: AppBar(
-        backgroundColor: darkerGreen,
-        iconTheme: IconThemeData(color: lighterGreen),
-        title: Text(
+        backgroundColor: normalBlue,
+        iconTheme: const IconThemeData(color: Colors.white),
+        title: const Text(
           'TalabatHub',
           style: TextStyle(
-            color: lighterGreen,
+            color: Colors.white,
             fontWeight: FontWeight.bold,
             fontSize: 30
           ),
@@ -111,15 +132,15 @@ class _HomeState extends State<Home> {
       ),
       body: pages[currentIndex],
       bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: darkerGreen,
+        backgroundColor: normalBlue,
         onTap: (value){
           setState(() {
             currentIndex = value;
           });
         },
         currentIndex: currentIndex,
-        selectedItemColor: lighterGreen,
-        unselectedItemColor: normalGreen,
+        selectedItemColor: Colors.white,
+        unselectedItemColor: darkerGray,
         type: BottomNavigationBarType.fixed,
         items: const [
           BottomNavigationBarItem(
