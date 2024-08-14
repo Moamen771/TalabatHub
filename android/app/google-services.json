@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "413154507306",
+    "project_id": "talabathub-cb797",
+    "storage_bucket": "talabathub-cb797.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:413154507306:android:dc48ca5b20832136f8a153",
+        "android_client_info": {
+          "package_name": "com.example.talabathub"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAjS3xzNf8YoH89OPGd_9lBjeURrlcDTmo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

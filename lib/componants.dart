@@ -1,112 +1,228 @@
+import 'dart:convert';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:gap/gap.dart';
 import 'package:talabathub/pages/account.dart';
 import 'package:talabathub/pages/cart.dart';
 import 'package:talabathub/pages/categories.dart';
 import 'package:talabathub/pages/home.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 /*
 import 'package:google_fonts/google_fonts.dart';
 */
 
+List addToCart = [];
 List pages = [
   const HomePage(),
-  CategoriesPage(),
-  const Account(),
+  const CategoriesPage(),
+  const AccountPage(),
   const Cart(),
 ];
-List food = [
+
+List restaurant = [
+  {'image': 'macimages/McDonalds.png'},
+  {'image': 'kfcimages/Kfc.png'},
+  {'image': 'pizzakingimages/pizzaKing.jpeg'},
+  {'image': 'bazookaimages/Bazooka.png'},
+];
+
+List macdonaldS = [
   {
-    'image' : 'images/download.jpeg',
-    'name' : 'Meat',
-    'price' : '120',
+    'image': 'macimages/Bigmac.png',
+    'name': 'Bigmac',
+    'price': '55',
   },
   {
-    'image' : 'images/download.jpeg',
-    'name' : 'Meat',
-    'price' : '120',
+    'image': 'macimages/Big-tasty-Beef.png',
+    'name': 'BigtastyBeef',
+    'price': '70',
   },
   {
-    'image' : 'images/download.jpeg',
-    'name' : 'Meat',
-    'price' : '120',
+    'image': 'macimages/Big-tasty-Chicken.png',
+    'name': 'BigtastyChicken',
+    'price': '75',
+  },
+  {
+    'image': 'macimages/McNuggets-4psc.png',
+    'name': 'McNuggets4',
+    'price': '90',
+  },
+  {
+    'image': 'macimages/McNuggets-6psc.png',
+    'name': 'McNuggets6',
+    'price': '130',
+  },
+  {
+    'image': 'macimages/CheeseBurger.png',
+    'name': 'CheeseBurger',
+    'price': '65',
+  },
+  {
+    'image': 'macimages/Chicken-Mac.png',
+    'name': 'ChickenMac',
+    'price': '70',
+  },
+  {
+    'image': 'macimages/Americano.png',
+    'name': 'Americano',
+    'price': '30',
+  },
+  {
+    'image': 'macimages/Cappu.png',
+    'name': 'Cappu',
+    'price': '35',
+  },
+  {
+    'image': 'macimages/Espresso1.png',
+    'name': 'Espresso1',
+    'price': '28',
+  },
+  {
+    'image': 'macimages/Latte.png',
+    'name': 'Latte',
+    'price': '25',
   },
 ];
-List clothes = [
+List kfc = [
   {
-    'image' : 'images/download.jpeg',
-    'name' : 'بنطلون',
-    'price' : '120',
+    'image': 'kfcimages/تويستر تريت.png',
+    'name': 'تويستر تريت',
+    'price': '99',
   },
   {
-    'image' : 'images/download.jpeg',
-    'name' : 'بنطلون',
-    'price' : '120',
+    'image': 'kfcimages/زنجر كرانش.png',
+    'name': 'زنجر كرانش',
+    'price': '99',
   },
   {
-    'image' : 'images/download.jpeg',
-    'name' : 'بنطلون',
-    'price' : '120',
-  },
-];
-List computers = [
-  {
-    'image' : 'images/download.jpeg',
-    'name' : 'Meat',
-    'price' : 120,
+    'image': 'kfcimages/مايتي بلس.png',
+    'name': 'مايتي بلس',
+    'price': '235',
   },
   {
-    'image' : 'images/download.jpeg',
-    'name' : 'Meat',
-    'price' : 120,
+    'image': 'kfcimages/ميجا ريزو.png',
+    'name': 'ميجا ريزو',
+    'price': '155',
   },
   {
-    'image' : 'images/download.jpeg',
-    'name' : 'Meat',
-    'price' : 120,
+    'image': 'kfcimages/ميكس & ماتش.png',
+    'name': 'ميكس & ماتش',
+    'price': '199',
+  },
+  {
+    'image': 'kfcimages/وجبة 4x4.png',
+    'name': 'وجبة 4x4',
+    'price': '530',
   },
 ];
-List electronics = [
+List bazooka = [
   {
-    'image' : 'images/download.jpeg',
-    'name' : 'Meat',
-    'price' : 120,
+    'image': 'bazookaimages/كرانشي تشيكن راب سبايسي.jpg',
+    'name': 'كرانشي تشيكن راب سبايسي',
+    'price': '90',
   },
   {
-    'image' : 'images/download.jpeg',
-    'name' : 'Meat',
-    'price' : 120,
+    'image': 'bazookaimages/R B G.jpg',
+    'name': 'R B G',
+    'price': '160',
   },
   {
-    'image' : 'images/download.jpeg',
-    'name' : 'Meat',
-    'price' : 120,
+    'image': 'bazookaimages/Chicken Honey Yummy.jpg',
+    'name': 'Chicken Honey Yummy',
+    'price': '100',
+  },
+  {
+    'image': 'bazookaimages/Chicken BBQ.jpg',
+    'name': 'Chicken BBQ',
+    'price': '120',
+  },
+  {
+    'image': 'bazookaimages/Bazooka Super Crunch.jpg',
+    'name': 'Bazooka Super Crunch',
+    'price': '95',
+  },
+  {
+    'image': 'bazookaimages/Bazooka Chicken Turkey.jpg',
+    'name': 'Bazooka Chicken Turkey',
+    'price': '135',
+  },
+];
+List pizzaKing = [
+  {
+    'image': 'pizzakingimages/خضراوات إيطالي.jpeg',
+    'name': 'خضراوات إيطالي',
+    'price': '100',
+  },
+  {
+    'image': 'pizzakingimages/رانش تشكن بيكون-ايطالي.jpeg',
+    'name': 'رانش تشكن بيكون-ايطالي',
+    'price': '120',
+  },
+  {
+    'image': 'pizzakingimages/زنجر سموكى-بان.jpeg',
+    'name': 'زنجر سموكى-بان',
+    'price': '110',
+  },
+  {
+    'image': 'pizzakingimages/سوبر سوبريم إيطالي.jpeg',
+    'name': 'سوبر سوبريم إيطالي',
+    'price': '140',
+  },
+  {
+    'image': 'pizzakingimages/ببروني تشيز ستيكس.jpeg',
+    'name': 'ببروني تشيز ستيكس',
+    'price': '40',
+  },
+  {
+    'image': 'pizzakingimages/تشيز إستيكس.jpeg',
+    'name': 'تشيز إستيكس',
+    'price': '50',
+  },
+  {
+    'image': 'pizzakingimages/كالزونى ببروني.jpeg',
+    'name': 'كالزونى ببروني',
+    'price': '70',
+  },
+  {
+    'image': 'pizzakingimages/كالزوني اللحوم الحارة.jpeg',
+    'name': 'كالزوني اللحوم الحارة',
+    'price': '70',
   },
 ];
 
-List categoriesList = [
-  food,
-  clothes,
-  computers,
-  electronics
-];
+List categoriesList = [macdonaldS, kfc, bazooka, pizzaKing];
 
-Widget drawerItem(child){
+Widget drawerItem(child) {
   return Container(
     padding: const EdgeInsets.all(10),
     margin: const EdgeInsets.all(10),
     decoration: BoxDecoration(
-      borderRadius: BorderRadius.circular(12),
-      color: normalGray,
-      border: Border.all(
-        color: darkGray,
-        width: 1
-      )
-    ),
+        borderRadius: BorderRadius.circular(12),
+        color: normalGray,
+        border: Border.all(color: darkGray, width: .2),
+        boxShadow: [
+          BoxShadow(
+              color: darkGray, blurRadius: 20, offset: const Offset(0, 10)),
+        ]),
     child: child,
   );
 }
 
-Widget category(){
+Widget homeCategory() {
+  return Container(
+    height: 200,
+    width: 200,
+    decoration: BoxDecoration(
+        color: Colors.green,
+        borderRadius: BorderRadius.circular(50),
+        image: const DecorationImage(
+            image: AssetImage('macimages/McDonalds.png'), fit: BoxFit.fill)),
+  );
+}
+
+Widget category() {
   return Container(
     margin: const EdgeInsets.symmetric(vertical: 10),
     child: Column(
@@ -118,13 +234,12 @@ Widget category(){
               Text(
                 'Category',
                 style: TextStyle(
-                  color: darkerGreen,
-                  fontSize: 30,
-                  fontWeight: FontWeight.w600
-                ),
+                    color: darkerGreen,
+                    fontSize: 30,
+                    fontWeight: FontWeight.w600),
               ),
               const Spacer(),
-              Icon(Icons.arrow_forward,size: 30,color: darkerGreen)
+              Icon(Icons.arrow_forward, size: 30, color: darkerGreen)
             ],
           ),
         ),
@@ -133,10 +248,14 @@ Widget category(){
           scrollDirection: Axis.horizontal,
           child: Row(
             children: [
-              container(image: 'images/download.png',name: 'food',price: '150'),
-              container(image: 'images/download.png',name: 'food',price: '150'),
-              container(image: 'images/download.png',name: 'food',price: '150'),
-              container(image: 'images/download.png',name: 'food',price: '150'),
+              container(
+                  image: 'images/download.png', name: 'food', price: '150'),
+              container(
+                  image: 'images/download.png', name: 'food', price: '150'),
+              container(
+                  image: 'images/download.png', name: 'food', price: '150'),
+              container(
+                  image: 'images/download.png', name: 'food', price: '150'),
             ],
           ),
         ),
@@ -145,18 +264,23 @@ Widget category(){
   );
 }
 
-Widget container({String? image,String? name,String? price}){
+Widget container({String? image, String? name, String? price}) {
+  Map<String, String?> item = {
+    'image': image,
+    'name': name,
+    'price': price,
+  };
   return Container(
     padding: const EdgeInsets.all(8),
     margin: const EdgeInsets.all(8),
     decoration: BoxDecoration(
-      color: lightGray,
-      borderRadius: BorderRadius.circular(15),
-      border: Border.all(
-        color: normalGray,
-        width: 3
-      )
-    ),
+        color: lightGray,
+        borderRadius: BorderRadius.circular(15),
+        border: Border.all(color: normalGray, width: 3),
+        boxShadow: [
+          BoxShadow(
+              color: darkGray, blurRadius: 10, offset: const Offset(0, 5)),
+        ]),
     child: Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
@@ -168,10 +292,7 @@ Widget container({String? image,String? name,String? price}){
         Text(
           name!,
           style: TextStyle(
-              fontSize: 18,
-              color: darkerGreen,
-              fontWeight: FontWeight.w600
-          ),
+              fontSize: 18, color: darkerGreen, fontWeight: FontWeight.w600),
         ),
         const Gap(5),
         Row(
@@ -180,10 +301,9 @@ Widget container({String? image,String? name,String? price}){
             Text(
               price!,
               style: TextStyle(
-                fontSize: 18,
-                color: darkerGreen,
-                fontWeight: FontWeight.w600
-              ),
+                  fontSize: 18,
+                  color: darkerGreen,
+                  fontWeight: FontWeight.w600),
             ),
             const Icon(Icons.attach_money)
           ],
@@ -192,18 +312,38 @@ Widget container({String? image,String? name,String? price}){
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             ElevatedButton(
-              onPressed: (){},
+              onPressed: () async {
+                addToCart.add(item);
+
+                final SharedPreferences pref =
+                    await SharedPreferences.getInstance();
+
+                List<String> stringList =
+                    addToCart.map((item) => jsonEncode(item)).toList();
+
+                await pref.setStringList('items', stringList);
+                Fluttertoast.showToast(
+                  msg: "item added succes",
+                  toastLength: Toast.LENGTH_SHORT,
+                  gravity: ToastGravity.BOTTOM,
+                  backgroundColor: darkerBlue,
+                  textColor: Colors.white,
+                  fontSize: 20.0,
+                );
+              },
               style: ButtonStyle(
                 backgroundColor: MaterialStatePropertyAll(normalBlue),
               ),
               child: const Text(
                 'Add to cart',
-                style: TextStyle(
-                  color: Colors.white),
+                style: TextStyle(color: Colors.white),
               ),
             ),
             const Gap(5),
-            Icon(Icons.favorite_border,color: normalBlue,)
+            Icon(
+              Icons.favorite_border,
+              color: normalBlue,
+            )
           ],
         )
       ],
@@ -211,10 +351,9 @@ Widget container({String? image,String? name,String? price}){
   );
 }
 
-
 /// Main Colors
 
-Color lighterBlue = const Color.fromRGBO(167, 230, 255,1);
+Color lighterBlue = const Color.fromRGBO(167, 230, 255, 1);
 Color lightBlue = const Color.fromRGBO(58, 190, 249, 1);
 Color normalBlue = const Color.fromRGBO(30, 67, 250, 1);
 Color darkBlue = const Color.fromRGBO(53, 114, 239, 1);
