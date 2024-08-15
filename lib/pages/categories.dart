@@ -17,6 +17,7 @@ class _CategoriesPageState extends State<CategoriesPage> {
     {'name': 'MacdonaldS', 'products': '${macdonaldS.length}'},
     {'name': 'Bazooka', 'products': '${bazooka.length}'},
     {'name': 'Pizza King', 'products': '${pizzaKing.length}'},
+    {'name': 'BLaban', 'products': '${bLaban.length}'},
     {'name': 'Beauty', 'products': '2,115,043'},
     {'name': 'Business, Industry & Science', 'products': '2,172,411'},
     {'name': 'Computers & Accessories', 'products': '2,440,206'},
@@ -100,6 +101,15 @@ class CategoryCard extends StatelessWidget {
                   builder: (context) => CategoryList(
                     listName: name,
                     categoryOptions: categoriesList[3],
+                  ),
+                ));
+          } else if (name == 'BLaban') {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => CategoryList(
+                    listName: name,
+                    categoryOptions: categoriesList[4],
                   ),
                 ));
           }

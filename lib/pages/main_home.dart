@@ -4,6 +4,7 @@ import 'package:talabathub/componants.dart';
 import 'package:talabathub/pages/account.dart';
 import 'package:talabathub/pages/cart.dart';
 import 'package:talabathub/pages/categories.dart';
+import 'package:talabathub/pages/favouriteList.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -79,6 +80,27 @@ class _HomeState extends State<Home> {
                 children: [
                   Text(
                     'Cart',
+                    style: TextStyle(
+                        fontSize: 26,
+                        color: Colors.black,
+                        fontWeight: FontWeight.w500),
+                  ),
+                  Icon(Icons.arrow_forward_ios, color: Colors.black)
+                ],
+              )),
+            ),
+            InkWell(
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const FavouriteList(),
+                    ));
+              },
+              child: drawerItem(const Row(
+                children: [
+                  Text(
+                    'FavouriteList',
                     style: TextStyle(
                         fontSize: 26,
                         color: Colors.black,

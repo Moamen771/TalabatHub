@@ -1,7 +1,5 @@
 import 'dart:convert';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:gap/gap.dart';
 import 'package:talabathub/pages/account.dart';
 import 'package:talabathub/pages/cart.dart';
@@ -14,6 +12,7 @@ import 'package:google_fonts/google_fonts.dart';
 */
 
 List addToCart = [];
+List favouriteList = [];
 List pages = [
   const HomePage(),
   const CategoriesPage(),
@@ -26,8 +25,8 @@ List restaurant = [
   {'image': 'kfcimages/Kfc.png'},
   {'image': 'pizzakingimages/pizzaKing.jpeg'},
   {'image': 'bazookaimages/Bazooka.png'},
+  {'image': 'BLabanImages/BLaban.jpg'},
 ];
-
 List macdonaldS = [
   {
     'image': 'macimages/Bigmac.png',
@@ -191,8 +190,70 @@ List pizzaKing = [
     'price': '70',
   },
 ];
+List bLaban = [
+  {
+    'image': 'BLabanImages/ام علي بالسمنة البلدي و مكسرات .jpg',
+    'name': 'ام علي + سمنة بلدي + مكسرات',
+    'price': '55',
+  },
+  {
+    'image': 'BLabanImages/رز بلبن مكسرات.jpg',
+    'name': 'رز بلبن + مكسرات',
+    'price': '45',
+  },
+  {
+    'image': 'BLabanImages/سالنكتيه مانجو.jpg',
+    'name': 'سالانكتيه مانجو',
+    'price': '80',
+  },
+  {
+    'image': 'BLabanImages/قشطوطة كراميل.jpg',
+    'name': 'قشطوطة كراميل',
+    'price': '50',
+  },
+  {
+    'image': 'BLabanImages/قشطوطة مانجا .jpg',
+    'name': 'قشطوطة مانجا',
+    'price': '45',
+  },
+  {
+    'image': 'BLabanImages/قشطوطة و كاستا و مانجا .jpg',
+    'name': 'قشطوطة + كاساتا + مانجا',
+    'price': '75',
+  },
+  {
+    'image': 'BLabanImages/كاستا.jpg',
+    'name': ' كاساتا',
+    'price': '30',
+  },
+  {
+    'image': 'BLabanImages/كشري اوريو.jpg',
+    'name': ' كشري اوريو',
+    'price': '55',
+  },
+  {
+    'image': 'BLabanImages/كشري بيستاشيو.jpg',
+    'name': ' كشري بيساتشيو',
+    'price': '70',
+  },
+  {
+    'image': 'BLabanImages/كشري كدر.jpg',
+    'name': ' كشري كندر',
+    'price': '60',
+  },
+  {
+    'image': 'BLabanImages/كشري لوتس.jpg',
+    'name': ' كشري لوتس',
+    'price': '65',
+  },
+  {
+    'image': 'BLabanImages/كشري مانجا.jpg',
+    'name': ' كشري مانجا',
+    'price': '60',
+  },
+];
 
-List categoriesList = [macdonaldS, kfc, bazooka, pizzaKing];
+List categoriesList = [macdonaldS, kfc, bazooka, pizzaKing, bLaban];
 
 Widget drawerItem(child) {
   return Container(
@@ -340,9 +401,29 @@ Widget container({String? image, String? name, String? price}) {
               ),
             ),
             const Gap(5),
-            Icon(
-              Icons.favorite_border,
-              color: normalBlue,
+            GestureDetector(
+              onTap: () async {
+                favouriteList.add(item);
+                final SharedPreferences prefFav =
+                    await SharedPreferences.getInstance();
+
+                List<String> favList =
+                    favouriteList.map((item) => jsonEncode(item)).toList();
+
+                await prefFav.setStringList('fav', favList);
+                Fluttertoast.showToast(
+                  msg: "item added to favourite",
+                  toastLength: Toast.LENGTH_SHORT,
+                  gravity: ToastGravity.BOTTOM,
+                  backgroundColor: darkerBlue,
+                  textColor: Colors.white,
+                  fontSize: 20.0,
+                );
+              },
+              child: Icon(
+                Icons.favorite_border,
+                color: normalBlue,
+              ),
             )
           ],
         )

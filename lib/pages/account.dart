@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:talabathub/componants.dart';
+import 'package:talabathub/pages/favouriteList.dart';
 
 class AccountPage extends StatelessWidget {
   const AccountPage({super.key});
@@ -83,15 +84,25 @@ class AccountPage extends StatelessWidget {
                             )),
                           ),
                           Expanded(
-                            child: drawerItem(const Center(
-                              child: Text(
-                                'Wishlist',
-                                style: TextStyle(
-                                  fontSize: 20,
-                                  color: Colors.black,
+                            child: GestureDetector(
+                              onTap: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) =>
+                                          const FavouriteList(),
+                                    ));
+                              },
+                              child: drawerItem(const Center(
+                                child: Text(
+                                  'Wishlist',
+                                  style: TextStyle(
+                                    fontSize: 20,
+                                    color: Colors.black,
+                                  ),
                                 ),
-                              ),
-                            )),
+                              )),
+                            ),
                           )
                         ],
                       ),

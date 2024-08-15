@@ -115,6 +115,7 @@ class _SignUpPageState extends State<SignUpPage> {
                                       bottom: BorderSide(color: Colors.white))),
                               child: TextField(
                                 controller: _emailController,
+                                style: const TextStyle(color: Colors.white),
                                 cursorColor: Colors.white,
                                 decoration: const InputDecoration(
                                     hintText: "Email or phone number",
@@ -128,6 +129,7 @@ class _SignUpPageState extends State<SignUpPage> {
                                       bottom: BorderSide(color: Colors.white))),
                               child: TextField(
                                 controller: _passwordController,
+                                style: const TextStyle(color: Colors.white),
                                 obscureText: true,
                                 decoration: const InputDecoration(
                                     hintText: "Password",
@@ -141,6 +143,7 @@ class _SignUpPageState extends State<SignUpPage> {
                                       bottom: BorderSide(color: Colors.white))),
                               child: TextField(
                                 controller: _confirmpasswordController,
+                                style: const TextStyle(color: Colors.white),
                                 obscureText: true,
                                 decoration: const InputDecoration(
                                     hintText: "Confirm Password",
