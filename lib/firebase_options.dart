@@ -50,19 +50,19 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyAjS3xzNf8YoH89OPGd_9lBjeURrlcDTmo',
-    appId: '1:413154507306:android:dc48ca5b20832136f8a153',
-    messagingSenderId: '413154507306',
-    projectId: 'talabathub-cb797',
-    storageBucket: 'talabathub-cb797.appspot.com',
+    apiKey: 'AIzaSyAOv2zLM86e5BaWTtTfO_XZqb4CgyP4LTc',
+    appId: '1:789882672138:android:29df3203b779bd4e0efbf3',
+    messagingSenderId: '789882672138',
+    projectId: 'talabathub2-5fb59',
+    storageBucket: 'talabathub2-5fb59.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyCg5jQXrTbAQlHfmwLAnZS0avVDIZ3LcjA',
-    appId: '1:413154507306:ios:d5baee79437cf8adf8a153',
-    messagingSenderId: '413154507306',
-    projectId: 'talabathub-cb797',
-    storageBucket: 'talabathub-cb797.appspot.com',
-    iosBundleId: 'com.example.talabathub',
+    apiKey: 'AIzaSyBu_oQs1pYGbTLc92Fz983yBnX3zFTaeNg',
+    appId: '1:789882672138:ios:cfec53923e6e44cb0efbf3',
+    messagingSenderId: '789882672138',
+    projectId: 'talabathub2-5fb59',
+    storageBucket: 'talabathub2-5fb59.appspot.com',
+    iosBundleId: 'com.example.talabat',
   );
 }

@@ -1,10 +1,10 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
-import 'package:talabathub/pages/account.dart';
-import 'package:talabathub/pages/cart.dart';
-import 'package:talabathub/pages/categories.dart';
-import 'package:talabathub/pages/home.dart';
+import 'package:talabat/pages/account.dart';
+import 'package:talabat/pages/cart.dart';
+import 'package:talabat/pages/categories.dart';
+import 'package:talabat/pages/home.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 /*
@@ -261,11 +261,25 @@ Widget drawerItem(child) {
     margin: const EdgeInsets.all(10),
     decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(12),
-        color: normalGray,
-        border: Border.all(color: darkGray, width: .2),
+        color: coolBlue,
         boxShadow: [
           BoxShadow(
-              color: darkGray, blurRadius: 20, offset: const Offset(0, 10)),
+              color: coolDarkBlue, blurRadius: 10, offset: const Offset(-5, 0)),
+        ]),
+    child: child,
+  );
+}
+
+Widget profile(child) {
+  return Container(
+    padding: const EdgeInsets.all(10),
+    margin: const EdgeInsets.all(10),
+    decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(12),
+        color: coolLightBlue,
+        boxShadow: [
+          BoxShadow(
+              color: coolDarkBlue, blurRadius: 10, offset: const Offset(-5, 0)),
         ]),
     child: child,
   );

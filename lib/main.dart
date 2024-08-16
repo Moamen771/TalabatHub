@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:talabathub/firebase_options.dart';
-import 'package:talabathub/loging/authentication.dart';
-import 'package:talabathub/loging/login.dart';
+import 'package:talabat/firebase_options.dart';
+import 'package:talabat/loging/authentication.dart';
+import 'package:talabat/loging/login.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:talabathub/loging/signup.dart';
+import 'package:talabat/loging/signup.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

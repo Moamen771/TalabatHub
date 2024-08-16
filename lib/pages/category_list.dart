@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:talabathub/componants.dart';
+import 'package:talabat/componants.dart';
 
 class CategoryList extends StatelessWidget {
   const CategoryList(

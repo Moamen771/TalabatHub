@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:talabathub/pages/category_list.dart';
-import 'package:talabathub/componants.dart';
+import 'package:talabat/pages/category_list.dart';
+import 'package:talabat/componants.dart';
 
 class CategoriesPage extends StatefulWidget {
   const CategoriesPage({super.key});

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
-import 'package:talabathub/componants.dart';
-import 'package:talabathub/pages/categories.dart';
-import 'package:talabathub/pages/category_list.dart';
+import 'package:talabat/componants.dart';
+import 'package:talabat/pages/categories.dart';
+import 'package:talabat/pages/category_list.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -39,7 +39,7 @@ class HomePage extends StatelessWidget {
           children: [
             Column(
               children: [
-                const Gap(15),
+                const Gap(5),
                 Text(
                   'Food menu',
                   style: TextStyle(
@@ -62,7 +62,7 @@ class HomePage extends StatelessWidget {
                 )
               ],
             ),
-            const Gap(30),
+            const Gap(10),
             SizedBox(
               height: 200,
               width: MediaQuery.of(context).size.width,
@@ -292,108 +292,3 @@ class HomePage extends StatelessWidget {
         ));
   }
 }
-
-/*Padding(
-        padding: const EdgeInsets.all(15.0),
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              Container(
-                height: 300,
-                width: MediaQuery.of(context).size.width,
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(30),
-                    boxShadow: [
-                      BoxShadow(
-                          color: darkGray,
-                          blurRadius: 20,
-                          offset: const Offset(0, 10)),
-                    ],
-                    image: const DecorationImage(
-                        image: AssetImage('images/Talabat_home.jpg'),
-                        fit: BoxFit.fill)),
-              ),
-              const Gap(20),
-              SizedBox(
-                height: 400,
-                child: GridView.builder(
-                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 3,
-                      crossAxisSpacing: 40,
-                      mainAxisSpacing: 40,
-                      childAspectRatio: 1),
-                  itemCount: restaurant.length,
-                  itemBuilder: (context, index) {
-                    return InkWell(
-                      onTap: () {
-                        String name = categories[index]['name']!;
-                        if (name == 'MacdonaldS') {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => CategoryList(
-                                  listName: name,
-                                  categoryOptions: categoriesList[0],
-                                ),
-                              ));
-                        } else if (name == 'Kfc') {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => CategoryList(
-                                  listName: name,
-                                  categoryOptions: categoriesList[1],
-                                ),
-                              ));
-                        } else if (name == 'Bazooka') {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => CategoryList(
-                                  listName: name,
-                                  categoryOptions: categoriesList[2],
-                                ),
-                              ));
-                        } else if (name == 'Pizza King') {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => CategoryList(
-                                  listName: name,
-                                  categoryOptions: categoriesList[3],
-                                ),
-                              ));
-                        } else if (name == 'BLaban') {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => CategoryList(
-                                  listName: name,
-                                  categoryOptions: categoriesList[4],
-                                ),
-                              ));
-                        }
-                      },
-                      child: Container(
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(30),
-                            border: Border.all(color: normalGray, width: 1),
-                            boxShadow: [
-                              BoxShadow(
-                                  color: darkGray,
-                                  blurRadius: 20,
-                                  offset: const Offset(0, 10)),
-                            ]),
-                        child: Image(
-                          image: AssetImage(restaurant[index]['image']),
-                          fit: BoxFit.fill,
-                        ),
-                      ),
-                    );
-                  },
-                ),
-              )
-            ],
-          ),
-        ),
-      ),*/
