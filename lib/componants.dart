@@ -343,7 +343,7 @@ Widget container({String? image, String? name, String? price}) {
               color: darkGray, blurRadius: 10, offset: const Offset(0, 5)),
         ]),
     child: Column(
-      mainAxisAlignment: MainAxisAlignment.center,
+      mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: [
         Image(
           image: AssetImage(image!),
@@ -370,7 +370,7 @@ Widget container({String? image, String? name, String? price}) {
           ],
         ),
         Row(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             ElevatedButton(
               onPressed: () async {
@@ -400,13 +400,11 @@ Widget container({String? image, String? name, String? price}) {
                 style: TextStyle(color: Colors.white),
               ),
             ),
-            const Gap(5),
             GestureDetector(
               onTap: () async {
                 favouriteList.add(item);
                 final SharedPreferences prefFav =
                     await SharedPreferences.getInstance();
-
                 List<String> favList =
                     favouriteList.map((item) => jsonEncode(item)).toList();
 
@@ -421,7 +419,7 @@ Widget container({String? image, String? name, String? price}) {
                 );
               },
               child: Icon(
-                Icons.favorite_border,
+                (isFavourite == false) ? favourite : favouriteAdded,
                 color: normalBlue,
               ),
             )
@@ -432,6 +430,10 @@ Widget container({String? image, String? name, String? price}) {
   );
 }
 
+bool isFavourite = false;
+IconData favourite = Icons.favorite_border;
+IconData favouriteAdded = Icons.favorite;
+
 /// Main Colors
 
 Color lighterBlue = const Color.fromRGBO(167, 230, 255, 1);
@@ -439,6 +441,14 @@ Color lightBlue = const Color.fromRGBO(58, 190, 249, 1);
 Color normalBlue = const Color.fromRGBO(30, 67, 250, 1);
 Color darkBlue = const Color.fromRGBO(53, 114, 239, 1);
 Color darkerBlue = const Color.fromRGBO(5, 12, 156, 1);
+
+//------------------------------------//
+
+Color coolLightBlue = const Color.fromARGB(255, 2, 93, 168);
+Color coolBlue = const Color.fromRGBO(1, 38, 69, 1);
+Color coolDarkBlue = const Color.fromARGB(255, 0, 9, 23);
+
+//------------------------------------//
 
 Color purple = const Color.fromRGBO(157, 60, 222, 1);
 

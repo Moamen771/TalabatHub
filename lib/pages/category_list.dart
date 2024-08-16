@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:talabathub/componants.dart';
 
 class CategoryList extends StatelessWidget {
-  const CategoryList({super.key, required this.categoryOptions,required this.listName});
+  const CategoryList(
+      {super.key, required this.categoryOptions, required this.listName});
+
   final List categoryOptions;
   final String listName;
 
@@ -15,10 +17,7 @@ class CategoryList extends StatelessWidget {
         title: Text(
           listName,
           style: const TextStyle(
-              color: Colors.white,
-              fontWeight: FontWeight.bold,
-              fontSize: 30
-          ),
+              color: Colors.white, fontWeight: FontWeight.bold, fontSize: 30),
         ),
       ),
       body: GridView.builder(

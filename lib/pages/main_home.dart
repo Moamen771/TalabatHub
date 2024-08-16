@@ -134,7 +134,7 @@ class _HomeState extends State<Home> {
         ),
       ),
       appBar: AppBar(
-        backgroundColor: normalBlue,
+        backgroundColor: coolLightBlue,
         iconTheme: const IconThemeData(color: Colors.white),
         title: const Text(
           'TalabatHub',
@@ -155,7 +155,7 @@ class _HomeState extends State<Home> {
       ),
       body: pages[currentIndex],
       bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: normalBlue,
+        backgroundColor: coolLightBlue,
         onTap: (value) {
           setState(() {
             currentIndex = value;
@@ -163,7 +163,7 @@ class _HomeState extends State<Home> {
         },
         currentIndex: currentIndex,
         selectedItemColor: Colors.white,
-        unselectedItemColor: darkerGray,
+        unselectedItemColor: coolBlue,
         type: BottomNavigationBarType.fixed,
         items: const [
           BottomNavigationBarItem(
