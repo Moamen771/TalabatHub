@@ -23,8 +23,7 @@ class _SignUpPageState extends State<SignUpPage> {
             email: _emailController.text.trim(),
             password: _passwordController.text.trim());
 
-        String idToken =
-            await FirebaseAuth.instance.currentUser?.getIdToken() ?? '';
+        String idToken = await FirebaseAuth.instance.currentUser?.uid ?? '';
 
         if (idToken.isNotEmpty) {
           print("Firebase ID Token: $idToken");

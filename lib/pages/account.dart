@@ -16,7 +16,7 @@ class AccountPage extends StatefulWidget {
 
 class _AccountPageState extends State<AccountPage> {
   Future<String?> getToken() async {
-    String? idToken = await FirebaseAuth.instance.currentUser?.getIdToken();
+    String? idToken = await FirebaseAuth.instance.currentUser?.uid;
     return idToken;
   }
 
@@ -38,6 +38,8 @@ class _AccountPageState extends State<AccountPage> {
       } else {
         print('No such user exists');
       }
+    } else {
+      print('faield token ');
     }
   }
 
