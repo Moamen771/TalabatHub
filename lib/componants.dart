@@ -1,10 +1,10 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
-import 'package:talabathub/pages/account.dart';
-import 'package:talabathub/pages/cart.dart';
-import 'package:talabathub/pages/categories.dart';
-import 'package:talabathub/pages/home.dart';
+import 'package:talabat/pages/account.dart';
+import 'package:talabat/pages/cart.dart';
+import 'package:talabat/pages/categories.dart';
+import 'package:talabat/pages/home.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 /*

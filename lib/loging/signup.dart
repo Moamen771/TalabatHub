@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
@@ -13,13 +14,44 @@ class _SignUpPageState extends State<SignUpPage> {
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
   final _confirmpasswordController = TextEditingController();
+  final _usernameController = TextEditingController();
 
   Future signUp() async {
-    if (passwordConfirmed()) {
-      await FirebaseAuth.instance.createUserWithEmailAndPassword(
-          email: _emailController.text.trim(),
-          password: _passwordController.text.trim());
-      Navigator.of(context).pushNamed('/');
+    if (passwordConfirmed() && _usernameController.text.isNotEmpty) {
+      try {
+        await FirebaseAuth.instance.createUserWithEmailAndPassword(
+            email: _emailController.text.trim(),
+            password: _passwordController.text.trim());
+
+        String idToken =
+            await FirebaseAuth.instance.currentUser?.getIdToken() ?? '';
+
+        if (idToken.isNotEmpty) {
+          print("Firebase ID Token: $idToken");
+
+          await FirebaseFirestore.instance
+              .collection('users')
+              .doc(idToken)
+              .set({
+            'name': _usernameController.text.trim(),
+            'email': _emailController.text.trim(),
+            'pass': _passwordController.text.trim(),
+            'token': idToken,
+          }).then((value) {
+            print("User Added");
+          }).catchError((error) {
+            print("Failed to add user: $error");
+          });
+
+          Navigator.of(context).pushNamed('/');
+        } else {
+          print("Failed to retrieve ID Token.");
+        }
+      } catch (e) {
+        print("Failed to sign up: $e");
+      }
+
+      // Navigator.of(context).pushNamed('/');
     }
   }
 
@@ -147,6 +179,20 @@ class _SignUpPageState extends State<SignUpPage> {
                                 obscureText: true,
                                 decoration: const InputDecoration(
                                     hintText: "Confirm Password",
+                                    hintStyle: TextStyle(color: Colors.white),
+                                    border: InputBorder.none),
+                              ),
+                            ),
+                            Container(
+                              decoration: const BoxDecoration(
+                                  border: Border(
+                                      bottom: BorderSide(color: Colors.white))),
+                              child: TextField(
+                                controller: _usernameController,
+                                style: const TextStyle(color: Colors.white),
+                                // obscureText: true,
+                                decoration: const InputDecoration(
+                                    hintText: "User Name",
                                     hintStyle: TextStyle(color: Colors.white),
                                     border: InputBorder.none),
                               ),

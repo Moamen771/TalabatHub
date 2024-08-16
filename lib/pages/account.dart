@@ -1,13 +1,54 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:gap/gap.dart';
-import 'package:talabathub/componants.dart';
-import 'package:talabathub/pages/cart.dart';
-import 'package:talabathub/pages/favouriteList.dart';
+import 'package:talabat/componants.dart';
+import 'package:talabat/pages/cart.dart';
+import 'package:talabat/pages/favouriteList.dart';
 
-class AccountPage extends StatelessWidget {
+class AccountPage extends StatefulWidget {
   const AccountPage({super.key});
+
+  @override
+  State<AccountPage> createState() => _AccountPageState();
+}
+
+class _AccountPageState extends State<AccountPage> {
+  Future<String?> getToken() async {
+    String? idToken = await FirebaseAuth.instance.currentUser?.getIdToken();
+    return idToken;
+  }
+
+  void getData() async {
+    String? token = await getToken();
+    if (token != null && token.isNotEmpty) {
+      DocumentSnapshot<Map<String, dynamic>> userData =
+          await FirebaseFirestore.instance.collection('users').doc(token).get();
+
+      if (userData.exists) {
+        final data = userData.data();
+        if (data != null) {
+          setState(() {
+            user = data['name'] ?? '';
+            mail = data['email'] ?? '';
+          });
+        }
+        print('User data: $data');
+      } else {
+        print('No such user exists');
+      }
+    }
+  }
+
+  late String user = '';
+  late String mail = '';
+
+  @override
+  void initState() {
+    getData();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -60,7 +101,7 @@ class AccountPage extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Text(
-                                'Hi,User',
+                                'Hi,$user',
                                 style: TextStyle(
                                   color: coolLightBlue,
                                   fontWeight: FontWeight.bold,
@@ -68,7 +109,7 @@ class AccountPage extends StatelessWidget {
                                 ),
                               ),
                               Text(
-                                'example@gmail.com',
+                                '$mail',
                                 style: TextStyle(
                                   color: coolLightBlue,
                                   fontSize: 20,
