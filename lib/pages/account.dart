@@ -1,11 +1,10 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:gap/gap.dart';
-import 'package:talabat/componants.dart';
-import 'package:talabat/pages/favouriteList.dart';
+import 'package:talabathub/componants.dart';
+import 'package:talabathub/pages/cart.dart';
+import 'package:talabathub/pages/favouriteList.dart';
 
 class AccountPage extends StatelessWidget {
   const AccountPage({super.key});
@@ -42,45 +41,36 @@ class AccountPage extends StatelessWidget {
                     right: 30,
                     left: 30,
                     top: 100,
-                    child: Container(
-                      height: 150,
-                      decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(15),
-                          border: Border.all(color: coolBlue, width: .2),
-                          boxShadow: [
-                            BoxShadow(
-                                color: coolDarkBlue,
-                                blurRadius: 20,
-                                offset: const Offset(5, 5)),
-                          ]),
-                    ),
-                  )
-                ],
-              ),
-              const Gap(75),
-              Container(
-                child: Padding(
-                  padding: const EdgeInsets.all(10.0),
-                  child: Row(
-                    children: [
-                      Expanded(
+                    child: Stack(clipBehavior: Clip.none, children: [
+                      Positioned(
                         child: Container(
-                          height: 120,
-                          color: Colors.green,
+                          height: 150,
+                          width: MediaQuery.of(context).size.width * .9,
+                          decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(15),
+                              border: Border.all(color: coolBlue, width: .2),
+                              boxShadow: [
+                                BoxShadow(
+                                    color: coolDarkBlue,
+                                    blurRadius: 20,
+                                    offset: const Offset(5, 5)),
+                              ]),
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
                               Text(
-                                '${favouriteList.length}',
+                                'Hi,User',
                                 style: TextStyle(
-                                    fontSize: 30, fontWeight: FontWeight.bold),
+                                  color: coolLightBlue,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 30,
+                                ),
                               ),
-                              Gap(10),
                               Text(
-                                'favourite',
+                                'example@gmail.com',
                                 style: TextStyle(
+                                  color: coolLightBlue,
                                   fontSize: 20,
                                 ),
                               ),
@@ -88,22 +78,166 @@ class AccountPage extends StatelessWidget {
                           ),
                         ),
                       ),
-                      Gap(10),
-                      Expanded(
-                        child: Container(
-                          height: 120,
-                          color: Colors.green,
+                      Positioned(
+                        right: 0,
+                        left: 0,
+                        top: -55,
+                        child: CircleAvatar(
+                          backgroundColor: Colors.white,
+                          radius: 50,
+                          child: CircleAvatar(
+                            backgroundColor: coolBlue,
+                            radius: 45,
+                          ),
                         ),
                       ),
-                      Gap(10),
-                      Expanded(
+                    ]),
+                  )
+                ],
+              ),
+              const Gap(70),
+              Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const FavouriteList(),
+                              ));
+                        },
                         child: Container(
                           height: 120,
-                          color: Colors.green,
+                          decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: const BorderRadius.only(
+                                topLeft: Radius.circular(20),
+                                topRight: Radius.circular(20),
+                              ),
+                              border: BorderDirectional(
+                                  bottom: BorderSide(
+                                      color: coolLightBlue, width: 10)),
+                              boxShadow: [
+                                BoxShadow(
+                                    color: darkGray,
+                                    blurRadius: 20,
+                                    offset: const Offset(-5, 10)),
+                              ]),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Text(
+                                '${favouriteList.length}',
+                                style: TextStyle(
+                                    fontSize: 30,
+                                    fontWeight: FontWeight.bold,
+                                    color: coolLightBlue),
+                              ),
+                              const Gap(10),
+                              Text(
+                                'favourite',
+                                style: TextStyle(
+                                    fontSize: 20, color: coolLightBlue),
+                              ),
+                            ],
+                          ),
                         ),
                       ),
-                    ],
-                  ),
+                    ),
+                    const Gap(10),
+                    Expanded(
+                      child: Container(
+                        height: 120,
+                        decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: const BorderRadius.only(
+                              topLeft: Radius.circular(20),
+                              topRight: Radius.circular(20),
+                            ),
+                            border: BorderDirectional(
+                                bottom: BorderSide(
+                                    color: coolLightBlue, width: 10)),
+                            boxShadow: [
+                              BoxShadow(
+                                  color: darkGray,
+                                  blurRadius: 20,
+                                  offset: const Offset(-5, 10)),
+                            ]),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Text(
+                              '${favouriteList.length}',
+                              style: TextStyle(
+                                  fontSize: 30,
+                                  fontWeight: FontWeight.bold,
+                                  color: coolLightBlue),
+                            ),
+                            const Gap(10),
+                            Text(
+                              'Credits',
+                              style:
+                                  TextStyle(fontSize: 20, color: coolLightBlue),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    const Gap(10),
+                    Expanded(
+                      child: GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const Cart(),
+                              ));
+                        },
+                        child: Container(
+                          height: 120,
+                          decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: const BorderRadius.only(
+                                topLeft: Radius.circular(20),
+                                topRight: Radius.circular(20),
+                              ),
+                              border: BorderDirectional(
+                                  bottom: BorderSide(
+                                      color: coolLightBlue, width: 10)),
+                              boxShadow: [
+                                BoxShadow(
+                                    color: darkGray,
+                                    blurRadius: 20,
+                                    offset: const Offset(-5, 10)),
+                              ]),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Text(
+                                '${addToCart.length}',
+                                style: TextStyle(
+                                    fontSize: 30,
+                                    fontWeight: FontWeight.bold,
+                                    color: coolLightBlue),
+                              ),
+                              const Gap(10),
+                              Text(
+                                'Cart',
+                                style: TextStyle(
+                                    fontSize: 20, color: coolLightBlue),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
               )
             ],
