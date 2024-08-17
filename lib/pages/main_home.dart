@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
@@ -16,6 +17,43 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   int currentIndex = 0;
+
+  Future<String?> getToken() async {
+    String? idToken = await FirebaseAuth.instance.currentUser?.uid;
+    return idToken;
+  }
+
+  void getData() async {
+    String? token = await getToken();
+    if (token != null && token.isNotEmpty) {
+      DocumentSnapshot<Map<String, dynamic>> userData =
+          await FirebaseFirestore.instance.collection('users').doc(token).get();
+
+      if (userData.exists) {
+        final data = userData.data();
+        if (data != null) {
+          setState(() {
+            user = data['name'] ?? '';
+            mail = data['email'] ?? '';
+          });
+        }
+        print('User data: $data');
+      } else {
+        print('No such user exists');
+      }
+    } else {
+      print('faield token ');
+    }
+  }
+
+  late String user = '';
+  late String mail = '';
+
+  @override
+  void initState() {
+    getData();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -36,19 +74,23 @@ class _HomeState extends State<Home> {
                         builder: (context) => const AccountPage(),
                       ));
                 },
-                child: drawerItem(const ListTile(
+                child: drawerItem(ListTile(
                   leading: CircleAvatar(
-                    backgroundImage: AssetImage('images/Light.jpg'),
+                    backgroundColor: Colors.white,
                     radius: 26,
+                    child: CircleAvatar(
+                      backgroundColor: coolDarkBlue,
+                      radius: 24,
+                    ),
                   ),
                   title: Text(
-                    'UserName',
-                    style: TextStyle(
+                    user,
+                    style: const TextStyle(
                         color: Colors.white, fontWeight: FontWeight.bold),
                   ),
                   subtitle: Text(
-                    'EMail@gmail.com',
-                    style: TextStyle(color: Colors.white),
+                    mail,
+                    style: const TextStyle(color: Colors.white),
                   ),
                 )),
               ),
@@ -143,7 +185,7 @@ class _HomeState extends State<Home> {
         backgroundColor: coolLightBlue,
         iconTheme: const IconThemeData(color: Colors.white),
         title: const Text(
-          'talabat',
+          'Talabat',
           style: TextStyle(
               color: Colors.white, fontWeight: FontWeight.bold, fontSize: 30),
         ),
@@ -181,7 +223,7 @@ class _HomeState extends State<Home> {
           ),
           BottomNavigationBarItem(
             icon: Icon(
-              Icons.category,
+              Icons.grid_view_sharp,
               size: 30,
             ),
             label: 'Categories',

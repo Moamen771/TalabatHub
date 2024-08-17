@@ -100,7 +100,7 @@ class _CartState extends State<Cart> {
             Container(
               width: double.infinity,
               height: 2,
-              decoration: const BoxDecoration(color: Colors.black),
+              decoration: BoxDecoration(color: coolLightBlue),
             ),
             const Gap(10),
             Expanded(
@@ -146,7 +146,7 @@ class _CartState extends State<Cart> {
                             msg: "Processing Checkout",
                             toastLength: Toast.LENGTH_SHORT,
                             gravity: ToastGravity.BOTTOM,
-                            backgroundColor: darkerBlue,
+                            backgroundColor: coolBlue,
                             textColor: Colors.white,
                             fontSize: 20.0,
                           );
@@ -165,7 +165,7 @@ class _CartState extends State<Cart> {
                               ),
                             ],
                             borderRadius: BorderRadius.circular(20),
-                            color: normalBlue,
+                            color: coolLightBlue,
                           ),
                           child: const Center(
                               child: Text(
@@ -294,8 +294,11 @@ class _ProductCartState extends State<ProductCart> {
                           children: [
                             Text(
                               widget.description,
-                              style: TextStyle(fontSize: 15, color: darkerBlue),
-                            ),
+                              style: const TextStyle(
+                                fontSize: 15,
+                                color: Colors.black,
+                              ),
+                            )
                           ],
                         ),
                         const Gap(20),
@@ -305,7 +308,7 @@ class _ProductCartState extends State<ProductCart> {
                           },
                           icon: Icon(
                             Icons.remove_circle_outline,
-                            color: darkerBlue,
+                            color: coolLightBlue,
                             size: 30,
                           ),
                         ),
@@ -319,35 +322,48 @@ class _ProductCartState extends State<ProductCart> {
                           '\$ ${widget.price}',
                           style: TextStyle(
                               fontSize: 20,
-                              color: darkerBlue,
+                              color: coolLightBlue,
                               fontWeight: FontWeight.w700),
                         ),
-                        const Gap(40),
+                        const Gap(50),
                         Container(
-                          width: 75,
+                          width: 100,
                           decoration: BoxDecoration(
-                              color: normalBlue,
                               borderRadius: BorderRadius.circular(20)),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               GestureDetector(
                                 onTap: () => {updateCount(count - 1)},
-                                child: const Icon(
-                                  Icons.remove,
-                                  color: Colors.white,
+                                child: Container(
+                                  height: 35,
+                                  width: 35,
+                                  decoration: BoxDecoration(
+                                      color: coolLightBlue,
+                                      borderRadius: BorderRadius.circular(10)),
+                                  child: const Icon(
+                                    Icons.remove,
+                                    color: Colors.white,
+                                  ),
                                 ),
                               ),
                               Text(
                                 '$count',
-                                style: const TextStyle(
-                                    fontSize: 20, color: Colors.white),
+                                style: TextStyle(
+                                    fontSize: 25, color: coolLightBlue),
                               ),
                               GestureDetector(
                                 onTap: () => {updateCount(count + 1)},
-                                child: const Icon(
-                                  Icons.add,
-                                  color: Colors.white,
+                                child: Container(
+                                  height: 35,
+                                  width: 35,
+                                  decoration: BoxDecoration(
+                                      color: coolLightBlue,
+                                      borderRadius: BorderRadius.circular(10)),
+                                  child: const Icon(
+                                    Icons.add,
+                                    color: Colors.white,
+                                  ),
                                 ),
                               )
                             ],

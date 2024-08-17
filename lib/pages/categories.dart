@@ -18,11 +18,10 @@ class _CategoriesPageState extends State<CategoriesPage> {
     {'name': 'Bazooka', 'products': '${bazooka.length}'},
     {'name': 'Pizza King', 'products': '${pizzaKing.length}'},
     {'name': 'BLaban', 'products': '${bLaban.length}'},
-    {'name': 'Beauty', 'products': '2,115,043'},
-    {'name': 'Business, Industry & Science', 'products': '2,172,411'},
-    {'name': 'Computers & Accessories', 'products': '2,440,206'},
-    {'name': 'Electronics & Photo', 'products': '7,049,698'},
-    {'name': 'Garden & Outdoors', 'products': '3,218,350'},
+    {'name': 'Fawaz', 'products': '${fawaz.length}'},
+    {'name': 'Al Abd', 'products': '${alAbd.length}'},
+    {'name': 'Al Falah', 'products': '${alFalah.length}'},
+    {'name': 'Kansas', 'products': '${kansas.length}'},
   ];
 
   @override
@@ -38,7 +37,7 @@ class _CategoriesPageState extends State<CategoriesPage> {
             crossAxisCount: 2,
             crossAxisSpacing: 5,
             mainAxisSpacing: 5,
-            childAspectRatio: 1,
+            childAspectRatio: 1.2,
           ),
           itemCount: categories.length,
           itemBuilder: (context, index) {
@@ -112,29 +111,75 @@ class CategoryCard extends StatelessWidget {
                     categoryOptions: categoriesList[4],
                   ),
                 ));
+          } else if (name == 'Fawaz') {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => CategoryList(
+                    listName: name,
+                    categoryOptions: categoriesList[5],
+                  ),
+                ));
+          } else if (name == 'Al Abd') {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => CategoryList(
+                    listName: name,
+                    categoryOptions: categoriesList[6],
+                  ),
+                ));
+          } else if (name == 'Al Falah') {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => CategoryList(
+                    listName: name,
+                    categoryOptions: categoriesList[7],
+                  ),
+                ));
+          } else if (name == 'Kansas') {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => CategoryList(
+                    listName: name,
+                    categoryOptions: categoriesList[8],
+                  ),
+                ));
           }
         },
         child: Card(
+          color: coolLightBlue,
           elevation: 2,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(10),
           ),
           child: Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: const EdgeInsets.all(10.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const Icon(Icons.category, size: 30),
+                const Icon(
+                  Icons.category,
+                  size: 30,
+                  color: Colors.white,
+                ),
                 // You can use different icons here
                 const SizedBox(height: 10),
                 Text(
                   name,
                   style: const TextStyle(
-                      fontWeight: FontWeight.bold, fontSize: 16),
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20,
+                      color: Colors.white),
                 ),
                 const SizedBox(height: 5),
-                Text('$products products'),
+                Text(
+                  '$products products',
+                  style: TextStyle(color: Colors.white),
+                ),
               ],
             ),
           ),

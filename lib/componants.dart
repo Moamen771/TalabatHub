@@ -252,8 +252,226 @@ List bLaban = [
     'price': '60',
   },
 ];
+List fawaz = [
+  {
+    'image': 'Fawaz/chicken.creep.jpg',
+    'name': 'chicken.creep',
+    'price': '55',
+  },
+  {
+    'image': 'Fawaz/double.creep.jpg',
+    'name': 'double.creep',
+    'price': '100',
+  },
+  {
+    'image': 'Fawaz/friends.meal.jpg',
+    'name': 'friends.meal',
+    'price': '300',
+  },
+  {
+    'image': 'Fawaz/big.pizza.jpg',
+    'name': 'big.pizza',
+    'price': '75',
+  },
+  {
+    'image': 'Fawaz/we.gather.jpg',
+    'name': 'we.gather',
+    'price': '150',
+  },
+  {
+    'image': 'Fawaz/family.gathering.jpg',
+    'name': 'family.gathering',
+    'price': '250',
+  },
+  {
+    'image': 'Fawaz/grilled.chicken.jpg',
+    'name': 'grilled.chicken ',
+    'price': '250',
+  },
+  {
+    'image': 'Fawaz/crispy.jpg',
+    'name': 'crispy',
+    'price': '100',
+  },
+];
+List alAbd = [
+  {
+    'image': 'Alabd/بسبوسه بندق.png',
+    'name': 'بسبوسة بندق',
+    'price': '130.00',
+  },
+  {
+    'image': 'Alabd/بسبوسه ساده.png',
+    'name': 'بسبوسة سادة',
+    'price': '125.00',
+  },
+  {
+    'image': 'Alabd/بلح الشام بالكريمة.png',
+    'name': 'بلح الشام بالكريمة',
+    'price': '125.00',
+  },
+  {
+    'image': 'Alabd/بلح الشام.png',
+    'name': 'بلح الشام',
+    'price': '105.00',
+  },
+  {
+    'image': 'Alabd/رموش الست.png',
+    'name': 'رموش الست',
+    'price': '135.00',
+  },
+  {
+    'image': 'Alabd/زلابية.png',
+    'name': 'زلابية',
+    'price': '85.00',
+  },
+  {
+    'image': 'Alabd/صوابع زينب.png',
+    'name': 'صوابع زينب',
+    'price': '75.00',
+  },
+  {
+    'image': 'Alabd/طبق فورمة بسبوسة سادة صغير.png',
+    'name': 'طبق فورمة بسبوسة سادة',
+    'price': '165.00',
+  },
+  {
+    'image': 'Alabd/علبة قطايف مكسرات.png',
+    'name': 'علبة قطايف مكسرات',
+    'price': '140.00',
+  },
+  {
+    'image': 'Alabd/علبة قمورة.png',
+    'name': 'علبة قمورة',
+    'price': '185.00',
+  },
+  {
+    'image': 'Alabd/علبة كنافة رولز.png',
+    'name': 'علبة كنافة رولز',
+    'price': '145.00',
+  },
+  {
+    'image': 'Alabd/علبة مشكلة بقلاوة.png',
+    'name': 'علبة مشكلة بقلاوة',
+    'price': '165.00',
+  },
+];
+List alFalah = [
+  {
+    'image': 'alFalah/طبق كبدا اسكندراني.jpg',
+    'name': 'طبق كبدا اسكندراني',
+    'price': '75',
+  },
+  {
+    'image': 'alFalah/طبق سدق اسكندراني.jpg',
+    'name': 'طبق سدق اسكندراني',
+    'price': '60',
+  },
+  {
+    'image': 'alFalah/طبق سدق اسكندراني مشوي عالجريل.jpg',
+    'name': ' طبق سدق اسكندراني مشوي عالجريل',
+    'price': '95',
+  },
+  {
+    'image': 'alFalah/طبق كلاوي.jpg',
+    'name': 'طبق كلاوي',
+    'price': '70',
+  },
+  {
+    'image': 'alFalah/طبق سدق ميكسيكانو.jpg',
+    'name': 'طبق سدق ميكسيكانو',
+    'price': '100',
+  },
+  {
+    'image': 'alFalah/طبق بطاطس.jpg',
+    'name': 'طبق بطاطس',
+    'price': '25',
+  },
+  {
+    'image': 'alFalah/طبق مشكل.jpg',
+    'name': 'طبق مشكل',
+    'price': '75',
+  },
+  {
+    'image': 'alFalah/ساندوتش استربس.jpg',
+    'name': 'ساندوتش استربس',
+    'price': '32',
+  },
+];
+List kansas = [
+  {
+    'image': 'KANSAS/بوص ديل.webp',
+    'name': 'بوص ديل',
+    'price': '175.00',
+  },
+  {
+    'image': 'KANSAS/ساندوتش تشيزي بافلو.webp',
+    'name': 'ساندوتش تشيزي بافلو',
+    'price': '115.00',
+  },
+  {
+    'image': 'KANSAS/عرض باكت ديو كرانشي.webp',
+    'name': 'عرض باكت ديو كرانشي',
+    'price': '365.00',
+  },
+  {
+    'image': 'KANSAS/عرض باكيت عائلي - 6 قطع.webp',
+    'name': 'عرض باكيت عائلي - 6 قطع',
+    'price': '440.00',
+  },
+  {
+    'image': 'KANSAS/عرض باكيت عائلي - 9 قطع.webp',
+    'name': 'عرض باكيت عائلي - 9 قطع',
+    'price': '560.00',
+  },
+  {
+    'image': 'KANSAS/عرض باكيت عائلي - 12 قطعة.webp',
+    'name': 'عرض باكيت عائلي - 12 قطعة',
+    'price': '670.00',
+  },
+  {
+    'image': 'KANSAS/عرض كنساس هيرو.webp',
+    'name': 'عرض كنساس هيرو',
+    'price': '195.00',
+  },
+  {
+    'image': 'KANSAS/عرض مانجو هابنيرو.webp',
+    'name': 'عرض مانجو هابنيرو',
+    'price': '125.00',
+  },
+  {
+    'image': 'KANSAS/عرض هوت تشيك بوكس.webp',
+    'name': 'عرض هوت تشيك بوكس',
+    'price': '195.00',
+  },
+  {
+    'image': 'KANSAS/عرض وجبة إيرلي بيرد.webp',
+    'name': 'عرض وجبة إيرلي بيرد',
+    'price': '69.00',
+  },
+  {
+    'image': 'KANSAS/عرض وجبة مورنينج تشيك.webp',
+    'name': 'عرض وجبة مورنينج تشيك',
+    'price': '79.00',
+  },
+  {
+    'image': 'KANSAS/كنساس بيج بوص ديل.webp',
+    'name': 'كنساس بيج بوص ديل',
+    'price': '235.00',
+  },
+];
 
-List categoriesList = [macdonaldS, kfc, bazooka, pizzaKing, bLaban];
+List categoriesList = [
+  macdonaldS,
+  kfc,
+  bazooka,
+  pizzaKing,
+  bLaban,
+  fawaz,
+  alAbd,
+  alFalah,
+  kansas
+];
 
 Widget drawerItem(child) {
   return Container(
@@ -380,7 +598,8 @@ Widget container({String? image, String? name, String? price}) {
                   color: darkerGreen,
                   fontWeight: FontWeight.w600),
             ),
-            const Icon(Icons.attach_money)
+            const Gap(5),
+            const Text('EG'),
           ],
         ),
         Row(
@@ -401,13 +620,13 @@ Widget container({String? image, String? name, String? price}) {
                   msg: "item added succes",
                   toastLength: Toast.LENGTH_SHORT,
                   gravity: ToastGravity.BOTTOM,
-                  backgroundColor: darkerBlue,
+                  backgroundColor: coolBlue,
                   textColor: Colors.white,
                   fontSize: 20.0,
                 );
               },
               style: ButtonStyle(
-                backgroundColor: MaterialStatePropertyAll(normalBlue),
+                backgroundColor: MaterialStatePropertyAll(coolLightBlue),
               ),
               child: const Text(
                 'Add to cart',
@@ -427,14 +646,14 @@ Widget container({String? image, String? name, String? price}) {
                   msg: "item added to favourite",
                   toastLength: Toast.LENGTH_SHORT,
                   gravity: ToastGravity.BOTTOM,
-                  backgroundColor: darkerBlue,
+                  backgroundColor: coolBlue,
                   textColor: Colors.white,
                   fontSize: 20.0,
                 );
               },
               child: Icon(
                 (isFavourite == false) ? favourite : favouriteAdded,
-                color: normalBlue,
+                color: coolLightBlue,
               ),
             )
           ],
