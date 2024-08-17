@@ -61,7 +61,7 @@ class _FavouriteListState extends State<FavouriteList> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
+        title: const Text(
           " your Favourite",
           style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
         ),
@@ -173,7 +173,8 @@ class _ProductCartState extends State<ProductCart> {
                           children: [
                             Text(
                               widget.description,
-                              style: TextStyle(fontSize: 15, color: darkerBlue),
+                              style:
+                                  TextStyle(fontSize: 15, color: Colors.black),
                             ),
                           ],
                         ),
@@ -184,7 +185,7 @@ class _ProductCartState extends State<ProductCart> {
                           },
                           icon: Icon(
                             Icons.remove_circle_outline,
-                            color: darkerBlue,
+                            color: coolLightBlue,
                             size: 30,
                           ),
                         ),
@@ -192,46 +193,17 @@ class _ProductCartState extends State<ProductCart> {
                     ),
                     const Gap(25),
                     Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          '\$ ${widget.price}',
+                          '${widget.price}',
                           style: TextStyle(
                               fontSize: 20,
-                              color: darkerBlue,
+                              color: coolLightBlue,
                               fontWeight: FontWeight.w700),
                         ),
+                        Gap(5),
+                        Text('EG'),
                         const Gap(40),
-                        Container(
-                          width: 75,
-                          decoration: BoxDecoration(
-                              color: normalBlue,
-                              borderRadius: BorderRadius.circular(20)),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              GestureDetector(
-                                onTap: () => {updateCount(count - 1)},
-                                child: const Icon(
-                                  Icons.remove,
-                                  color: Colors.white,
-                                ),
-                              ),
-                              Text(
-                                '$count',
-                                style: const TextStyle(
-                                    fontSize: 20, color: Colors.white),
-                              ),
-                              GestureDetector(
-                                onTap: () => {updateCount(count + 1)},
-                                child: const Icon(
-                                  Icons.add,
-                                  color: Colors.white,
-                                ),
-                              )
-                            ],
-                          ),
-                        )
                       ],
                     ),
                   ],

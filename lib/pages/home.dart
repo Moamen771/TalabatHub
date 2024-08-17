@@ -25,31 +25,34 @@ class HomePage extends StatelessWidget {
       {
         'name': 'BLaban',
       },
+      {'name': 'Al Abd'}
     ];
     final List firstOption = [
       macdonaldS[0],
       kfc[0],
       bazooka[0],
       pizzaKing[0],
-      bLaban[0]
+      bLaban[0],
+      alAbd[0]
     ];
     return Scaffold(
         backgroundColor: Colors.white,
         body: Column(
           children: [
             Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const Gap(5),
                 Text(
                   'Food menu',
                   style: TextStyle(
-                      fontSize: 40,
+                      fontSize: 30,
                       fontWeight: FontWeight.w800,
                       color: coolLightBlue),
                 ),
                 Container(
                   height: 3,
-                  width: 200,
+                  width: 155,
                   color: coolLightBlue,
                 ),
                 const Gap(5),
@@ -62,9 +65,9 @@ class HomePage extends StatelessWidget {
                 )
               ],
             ),
-            const Gap(10),
+            const Gap(20),
             SizedBox(
-              height: 200,
+              height: 180,
               width: MediaQuery.of(context).size.width,
               child: GridView.builder(
                 scrollDirection: Axis.horizontal,
@@ -73,7 +76,7 @@ class HomePage extends StatelessWidget {
                     crossAxisCount: 1,
                     crossAxisSpacing: 5,
                     mainAxisSpacing: 5,
-                    childAspectRatio: 1.6),
+                    childAspectRatio: 1.2),
                 itemBuilder: (context, index) {
                   return InkWell(
                     onTap: () {
@@ -122,6 +125,15 @@ class HomePage extends StatelessWidget {
                                 categoryOptions: categoriesList[4],
                               ),
                             ));
+                      } else if (index == 5) {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => CategoryList(
+                                listName: 'Al Abd',
+                                categoryOptions: categoriesList[6],
+                              ),
+                            ));
                       }
                     },
                     child: Container(
@@ -147,7 +159,7 @@ class HomePage extends StatelessWidget {
                 },
               ),
             ),
-            const Gap(10),
+            const Gap(20),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -170,9 +182,9 @@ class HomePage extends StatelessWidget {
                     ),
                   ),
                 ),
-                const Gap(10),
+                const Gap(20),
                 SizedBox(
-                  height: 180,
+                  height: 160,
                   width: MediaQuery.of(context).size.width,
                   child: GridView.builder(
                     scrollDirection: Axis.horizontal,
@@ -230,6 +242,15 @@ class HomePage extends StatelessWidget {
                                   builder: (context) => CategoryList(
                                     listName: name,
                                     categoryOptions: categoriesList[4],
+                                  ),
+                                ));
+                          } else if (name == 'Al Abd') {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => CategoryList(
+                                    listName: name,
+                                    categoryOptions: categoriesList[6],
                                   ),
                                 ));
                           }
