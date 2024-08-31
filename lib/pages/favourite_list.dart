@@ -173,8 +173,8 @@ class _ProductCartState extends State<ProductCart> {
                           children: [
                             Text(
                               widget.description,
-                              style:
-                                  TextStyle(fontSize: 15, color: Colors.black),
+                              style: const TextStyle(
+                                  fontSize: 15, color: Colors.black),
                             ),
                           ],
                         ),
@@ -201,8 +201,8 @@ class _ProductCartState extends State<ProductCart> {
                               color: coolLightBlue,
                               fontWeight: FontWeight.w700),
                         ),
-                        Gap(5),
-                        Text('EG'),
+                        const Gap(5),
+                        const Text('EG'),
                         const Gap(40),
                       ],
                     ),

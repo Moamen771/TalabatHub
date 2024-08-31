@@ -6,7 +6,7 @@ import 'package:talabat/componants.dart';
 import 'package:talabat/pages/account.dart';
 import 'package:talabat/pages/cart.dart';
 import 'package:talabat/pages/categories.dart';
-import 'package:talabat/pages/favouriteList.dart';
+import 'package:talabat/pages/favourite_list.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});

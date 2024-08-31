@@ -140,6 +140,21 @@ class _SignUpPageState extends State<SignUpPage> {
                         child: Column(
                           children: [
                             Container(
+                              decoration: const BoxDecoration(
+                                  border: Border(
+                                      bottom: BorderSide(color: Colors.white))),
+                              child: TextField(
+                                controller: _usernameController,
+                                cursorColor: Colors.white,
+                                style: const TextStyle(color: Colors.white),
+                                // obscureText: true,
+                                decoration: const InputDecoration(
+                                    hintText: "User Name",
+                                    hintStyle: TextStyle(color: Colors.white),
+                                    border: InputBorder.none),
+                              ),
+                            ),
+                            Container(
                               // padding: EdgeInsets.all(10),
                               decoration: const BoxDecoration(
                                   border: Border(
@@ -160,6 +175,7 @@ class _SignUpPageState extends State<SignUpPage> {
                                       bottom: BorderSide(color: Colors.white))),
                               child: TextField(
                                 controller: _passwordController,
+                                cursorColor: Colors.white,
                                 style: const TextStyle(color: Colors.white),
                                 obscureText: true,
                                 decoration: const InputDecoration(
@@ -174,24 +190,11 @@ class _SignUpPageState extends State<SignUpPage> {
                                       bottom: BorderSide(color: Colors.white))),
                               child: TextField(
                                 controller: _confirmpasswordController,
+                                cursorColor: Colors.white,
                                 style: const TextStyle(color: Colors.white),
                                 obscureText: true,
                                 decoration: const InputDecoration(
                                     hintText: "Confirm Password",
-                                    hintStyle: TextStyle(color: Colors.white),
-                                    border: InputBorder.none),
-                              ),
-                            ),
-                            Container(
-                              decoration: const BoxDecoration(
-                                  border: Border(
-                                      bottom: BorderSide(color: Colors.white))),
-                              child: TextField(
-                                controller: _usernameController,
-                                style: const TextStyle(color: Colors.white),
-                                // obscureText: true,
-                                decoration: const InputDecoration(
-                                    hintText: "User Name",
                                     hintStyle: TextStyle(color: Colors.white),
                                     border: InputBorder.none),
                               ),

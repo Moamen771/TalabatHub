@@ -10,8 +10,6 @@ class CategoriesPage extends StatefulWidget {
 }
 
 class _CategoriesPageState extends State<CategoriesPage> {
-  List categriesItems = categoriesList;
-
   final List<Map<String, String>> categories = [
     {'name': 'Kfc', 'products': '${kfc.length}'},
     {'name': 'MacdonaldS', 'products': '${macdonaldS.length}'},
@@ -178,7 +176,7 @@ class CategoryCard extends StatelessWidget {
                 const SizedBox(height: 5),
                 Text(
                   '$products products',
-                  style: TextStyle(color: Colors.white),
+                  style: const TextStyle(color: Colors.white),
                 ),
               ],
             ),

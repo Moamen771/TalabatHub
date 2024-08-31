@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:talabat/componants.dart';
 import 'package:talabat/pages/cart.dart';
-import 'package:talabat/pages/favouriteList.dart';
+import 'package:talabat/pages/favourite_list.dart';
 
 class AccountPage extends StatefulWidget {
   const AccountPage({super.key});
@@ -110,7 +110,7 @@ class _AccountPageState extends State<AccountPage> {
                                 ),
                               ),
                               Text(
-                                '$mail',
+                                mail,
                                 style: TextStyle(
                                   color: coolLightBlue,
                                   fontSize: 20,
@@ -128,7 +128,7 @@ class _AccountPageState extends State<AccountPage> {
                           backgroundColor: Colors.white,
                           radius: 50,
                           child: CircleAvatar(
-                            backgroundColor: coolBlue,
+                            backgroundColor: coolDarkBlue,
                             radius: 45,
                           ),
                         ),
